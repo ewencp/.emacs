@@ -138,10 +138,14 @@
 (set-face-underline-p 'nick-url-face t)
 
 ; Remove those pesky scrollbars - they just take up space
-(if (not (string-match "21.2.1" emacs-version)) (scroll-bar-mode nil))
+(if (fboundp 'scroll-bar-mode)
+    (scroll-bar-mode nil)
+  )
 
 ; Remove stupid toolbar
-(tool-bar-mode nil)
+(if (fboundp 'tool-bar-mode)
+    (tool-bar-mode nil)
+  )
 
 ; In case of extra buttons
 (global-set-key [mouse-4] 'scroll-down)

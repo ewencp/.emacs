@@ -40,6 +40,9 @@
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
 (autoload 'cmake-mode "cmake-mode" "Major mode for editing CMake build scripts." t)
 
+; Set default mode for new buffers to text
+(setq default-major-mode 'text-mode)
+
 ; Put temp files somewhere they won't bother me, and delete old ones
 (setq make-backup-files t)
 (setq version-control t)

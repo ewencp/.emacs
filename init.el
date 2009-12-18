@@ -130,7 +130,9 @@
         '("\\.php$"       . php-mode)
         '("\\.cs$"        . csharp-mode)
         '("CMakeLists\\.txt\\'" . cmake-mode)
-        '("\\.cmake\\'"   . cmake-mode))
+        '("\\.cmake\\'"   . cmake-mode)
+        '("\\.doc\\'"     . c++-mode) ; Doxygen docs use C++ comments
+        )
        auto-mode-alist))
 
 (make-face            'nick-url-face)

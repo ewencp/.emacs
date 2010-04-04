@@ -39,6 +39,7 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
 (autoload 'cmake-mode "cmake-mode" "Major mode for editing CMake build scripts." t)
+(autoload 'javascript-mode "javascript" nil t)
 
 ; Set default mode for new buffers to text
 (setq default-major-mode 'text-mode)
@@ -132,6 +133,7 @@
         '("CMakeLists\\.txt\\'" . cmake-mode)
         '("\\.cmake\\'"   . cmake-mode)
         '("\\.doc\\'"     . c++-mode) ; Doxygen docs use C++ comments
+        '("\\.js\\'"     . javascript-mode)
         )
        auto-mode-alist))
 
@@ -235,6 +237,10 @@
 (defconst asm-mode-set-comment-hook
   '(lambda ()
      (setq asm-comment-char ?\#)))
+
+(defconst javascript-mode-hook
+  '(lambda ()
+     (run-hooks 'c-mode-hook)))
 
 ;#####################################################################
 ; extra binds

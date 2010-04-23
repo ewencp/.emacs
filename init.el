@@ -15,6 +15,10 @@
 ; Don't wait for the window manager if it takes a long time
 (modify-frame-parameters nil '((wait-for-wm . nil)))
 
+; Disable the splash screen, which hides the document opened and is
+; useless anyway
+(setq inhibit-splash-screen t)
+
 ; Use .emacs.d for .el files
 (add-to-list 'load-path "~/.emacs.d")
 

@@ -304,6 +304,13 @@
   (message "My JS2 hook"))
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
+; Compilation stuff
+(require 'super-compile)
+(setq compilation-scroll-output 'first-error)
+(global-set-key (kbd "<f8>") 'super-compile)
+(global-set-key (kbd "C-<f8>") 'kill-compilation)
+(global-set-key (kbd "C-e") 'next-error)
+
 ;#####################################################################
 ; extra binds
 ;#####################################################################

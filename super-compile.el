@@ -4,7 +4,7 @@
 ; find the right script for the project and run it.
 
 ; Command that will be run
-(defconst default-super-compile-command "make")
+(defconst default-super-compile-command "make -k -j3")
 ; Build script file to search for
 (defconst default-super-compile-script "CMakeLists.txt")
 ; List of path offsets to search for build scripts in

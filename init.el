@@ -310,6 +310,8 @@
 (global-set-key (kbd "<f8>") 'super-compile)
 (global-set-key (kbd "C-<f8>") 'kill-compilation)
 (global-set-key (kbd "C-e") 'next-error)
+; Skip warnings in compile output
+(setq compilation-skip-threshold 2)
 
 ;#####################################################################
 ; extra binds

@@ -140,6 +140,7 @@
         '("\\.doc\\'"     . c++-mode) ; Doxygen docs use C++ comments
         '("\\.js\\'"      . js2-mode)
         '("\\.json\\'"      . js2-mode)
+        '("\\.org\\'"      . org-mode)
         )
        auto-mode-alist))
 
@@ -312,6 +313,14 @@
 (global-set-key (kbd "C-e") 'next-error)
 ; Skip warnings in compile output
 (setq compilation-skip-threshold 2)
+
+; Org mode
+(require 'org-install)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+(add-hook 'org-mode-hook 'turn-on-font-lock)  ; Org buffers only
+(setq org-log-done 'time) ; record times for DONE
 
 ;#####################################################################
 ; extra binds

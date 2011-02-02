@@ -140,6 +140,7 @@
         '("\\.doc\\'"     . c++-mode) ; Doxygen docs use C++ comments
         '("\\.js\\'"      . js2-mode)
         '("\\.json\\'"      . js2-mode)
+        '("\\.em\\'"      . js2-mode)
         '("\\.org\\'"      . org-mode)
         )
        auto-mode-alist))

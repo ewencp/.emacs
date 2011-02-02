@@ -137,7 +137,7 @@
         '("\\.cs$"        . csharp-mode)
         '("CMakeLists\\.txt\\'" . cmake-mode)
         '("\\.cmake\\'"   . cmake-mode)
-        '("\\.doc\\'"     . c++-mode) ; Doxygen docs use C++ comments
+        '("\\.doc\\'"     . text-mode)
         '("\\.js\\'"      . js2-mode)
         '("\\.json\\'"      . js2-mode)
         '("\\.em\\'"      . js2-mode)

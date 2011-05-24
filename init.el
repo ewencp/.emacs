@@ -141,7 +141,6 @@
         '("\\.js\\'"      . js2-mode)
         '("\\.json\\'"      . js2-mode)
         '("\\.em\\'"      . js2-mode)
-        '("\\.org\\'"      . org-mode)
         )
        auto-mode-alist))
 
@@ -315,13 +314,6 @@
 ; Skip warnings in compile output
 (setq compilation-skip-threshold 2)
 
-; Org mode
-(require 'org-install)
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(add-hook 'org-mode-hook 'turn-on-font-lock)  ; Org buffers only
-(setq org-log-done 'time) ; record times for DONE
 
 ;#####################################################################
 ; extra binds
@@ -349,3 +341,6 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#212121" :foreground "gray95" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 99 :width normal :foundry "bitstream" :family "Bitstream Vera Sans Mono")))))
+
+; Magit
+(global-set-key (kbd "C-g") 'magit-status)

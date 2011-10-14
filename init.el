@@ -231,7 +231,8 @@
      (setq truncate-lines nil)
      (line-number-mode 1)
      (c-toggle-hungry-state 1)
-     (imenu-add-menubar-index)))
+     (imenu-add-menubar-index)
+     (hs-minor-mode)))
 
 (defconst c++-mode-hook
   '(lambda ()
@@ -303,7 +304,7 @@
   (if (featurep 'js2-highlight-vars)
     (js2-highlight-vars-mode))
   (message "My JS2 hook"))
-(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+;(add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
 ; Compilation stuff
 (require 'super-compile)
@@ -344,3 +345,9 @@
 
 ; Magit
 (global-set-key (kbd "C-g") 'magit-status)
+
+; Code folding
+(global-set-key (kbd "C-f") 'hs-toggle-hiding)
+
+; Copy-and-paste logging
+(require 'keylogger)

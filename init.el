@@ -249,7 +249,7 @@
 ; Javascript stuff
 
 ; sourced from mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
-(defun js2-indent-function ()
+(defun e-js2-indent-function ()
   (interactive)
   (save-restriction
     (widen)
@@ -280,16 +280,16 @@
       (indent-line-to indentation)
       (when (> offset 0) (forward-char offset)))))
 
-(defun js2-mode-hook ()
+(defun e-js2-mode-hook ()
   (require 'espresso)
   (auto-fill-mode t)
   (defconst fill-column 80)
-  (setq espresso-indent-level 8
+  (setq espresso-indent-level 4
         indent-tabs-mode nil
-        c-basic-offset 8)
+        c-basic-offset 4)
   (c-toggle-auto-state 0)
   (c-toggle-hungry-state 1)
-  (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
+  (set (make-local-variable 'indent-line-function) 'e-js2-indent-function)
   (define-key js2-mode-map [(meta control |)] 'cperl-lineup)
   (define-key js2-mode-map [(meta control \;)]
     '(lambda()
@@ -303,8 +303,8 @@
   (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
   (if (featurep 'js2-highlight-vars)
     (js2-highlight-vars-mode))
-  (message "My JS2 hook"))
-;(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+  (message "JS2 hook"))
+(add-hook 'js2-mode-hook 'e-js2-mode-hook)
 
 ; Compilation stuff
 (require 'super-compile)

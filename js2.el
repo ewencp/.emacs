@@ -417,7 +417,7 @@ so this behavior is customizable."
   :group 'js2-mode
   :type 'boolean)
 
-(defcustom js2-mirror-mode t
+(defcustom js2-mirror-mode nil
   "Non-nil to insert closing brackets, parens, etc. automatically."
   :group 'js2-mode
   :type 'boolean)

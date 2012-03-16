@@ -4,11 +4,16 @@
 ; find the right script for the project and run it.
 
 ; Command that will be run
-(defconst default-super-compile-command "make -k -j3")
-; Build script file to search for
-(defconst default-super-compile-script "CMakeLists.txt")
+(defconst default-super-compile-command "make -k -j2")
+; Build script file to search for. If you build in a different
+; directory than you have your CMakeLists.txt in then CMakeLists.txt
+; isn't a good choice for this. The Makefile should be reliable since
+; you probably want to run make from within that directory, but you
+; don't want to accidentally hit some other makefiles. Instead look
+; for a CMake-related file that shouldn't show up anywhere else.
+(defconst default-super-compile-script "cmake_install.cmake")
 ; List of path offsets to search for build scripts in
-(defconst default-super-compile-paths '("" "build/" "cmake/" "build/cmake/"))
+(defconst default-super-compile-paths '("" "build/" "cmake/" "build/cmake/" "build/out/"))
 
 (defvar super-compile-command default-super-compile-command)
 (defvar super-compile-script default-super-compile-script)

@@ -21,6 +21,7 @@
 
 ; Use .emacs.d for .el files
 (add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/jade-mode")
 
 ; Personality stuff
 (require 'personality)
@@ -29,6 +30,9 @@
 (require 'cc-mode)
 (require 'mouse-drag)
 (require 'helper)
+
+(require 'sws-mode)
+(require 'jade-mode)
 
 ;; Nukes trailing whitespace and deletes excess newlines
 (autoload 'nuke-trailing-whitespace "whitespace" nil t)
@@ -85,7 +89,7 @@
 ; Global color and fonts
 (setq default-frame-alist
       '(
-        (font             .  "Monospace-10")
+        (font             .  "Droid Sans Mono-10")
         (width            .     156 )
         (height           .     50 )
         (mouse-color      . "White")
@@ -109,7 +113,7 @@
 (setq-default indent-tabs-mode nil)
 
 ; Set up the mode-specific font locking
-(global-font-lock-mode t nil)
+(global-font-lock-mode t)
 (setq font-lock-maximum-decoration t)
 
 ; Set the modes for various types of files
@@ -141,6 +145,9 @@
         '("\\.js\\'"      . js2-mode)
         '("\\.json\\'"      . js2-mode)
         '("\\.em\\'"      . js2-mode)
+        '("\\.hs\\'"      . haskell-mode)
+        '("\\.styl\\'"      . sws-mode)
+        '("\\.jade\\'"      . jade-mode)
         )
        auto-mode-alist))
 
@@ -200,7 +207,7 @@
 ; tex stuff
 (setq tex-dvi-view-command "xdvi")
 
-(global-font-lock-mode t nil)
+(global-font-lock-mode t)
 (setq-default font-lock-maximum-decoration t)
 (setq scroll-preserve-screen-position nil)
 
@@ -350,4 +357,4 @@
 (global-set-key (kbd "C-f") 'hs-toggle-hiding)
 
 ; Copy-and-paste logging
-(require 'keylogger)
+;(require 'keylogger)

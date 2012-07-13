@@ -49,6 +49,7 @@
 (autoload 'cmake-mode "cmake-mode" "Major mode for editing CMake build scripts." t)
 (autoload 'js2-mode "js2" nil t)
 (autoload 'espresso-mode "espresso-mode" nil t)
+(autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
 
 ; Set default mode for new buffers to text
 (setq default-major-mode 'text-mode)
@@ -148,6 +149,7 @@
         '("\\.hs\\'"      . haskell-mode)
         '("\\.styl\\'"      . sws-mode)
         '("\\.jade\\'"      . jade-mode)
+        '("\\.pp\\'"      . puppet-mode)
         )
        auto-mode-alist))
 

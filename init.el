@@ -34,6 +34,9 @@
 (require 'sws-mode)
 (require 'jade-mode)
 
+(require 'less-mode)
+
+
 ;; Nukes trailing whitespace and deletes excess newlines
 (autoload 'nuke-trailing-whitespace "whitespace" nil t)
 (setq whitespace-check-mode t)
@@ -150,6 +153,7 @@
         '("\\.styl\\'"      . sws-mode)
         '("\\.jade\\'"      . jade-mode)
         '("\\.pp\\'"      . puppet-mode)
+        '("\\.less$"      . less-css-mode)
         )
        auto-mode-alist))
 

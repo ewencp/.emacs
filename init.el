@@ -36,6 +36,9 @@
 
 (require 'less-mode)
 
+; Go mode, including gofmt-on-save
+(require 'go-mode)
+(add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; Nukes trailing whitespace and deletes excess newlines
 (autoload 'nuke-trailing-whitespace "whitespace" nil t)
@@ -154,6 +157,7 @@
         '("\\.jade\\'"      . jade-mode)
         '("\\.pp\\'"      . puppet-mode)
         '("\\.less$"      . less-css-mode)
+        '("\\.go$"      . go-mode)
         )
        auto-mode-alist))
 

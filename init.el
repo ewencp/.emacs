@@ -57,6 +57,8 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
   (setq tab-width 4)
 )
 
+(require 'magit)
+
 ; Mac wants home/end to be start/end of document rather than line
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)

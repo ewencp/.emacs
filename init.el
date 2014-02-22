@@ -22,6 +22,7 @@
 ; Use .emacs.d for .el files
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/jade-mode")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ; Personality stuff
 (require 'personality)
@@ -36,9 +37,26 @@
 
 (require 'less-mode)
 
+; There are some issues finding programs in the PATH on mac, this resolves them.
+(defun set-exec-path-from-shell-PATH ()
+  "Set up Emacs' `exec-path' and PATH environment variable to match that used by the user's shell.
+
+This is particularly useful under Mac OSX, where GUI apps are not started from a shell."
+  (interactive)
+  (let ((path-from-shell (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+(when (memq window-system '(mac ns))
+  (set-exec-path-from-shell-PATH))
+
+
 ; Go mode, including gofmt-on-save
 (require 'go-mode)
 (add-hook 'before-save-hook 'gofmt-before-save)
+
+; Mac wants home/end to be start/end of document rather than line
+(define-key global-map [home] 'beginning-of-line)
+(define-key global-map [end] 'end-of-line)
 
 ;; Nukes trailing whitespace and deletes excess newlines
 (autoload 'nuke-trailing-whitespace "whitespace" nil t)
@@ -110,8 +128,8 @@
   (hi-lock-mode 1))
 
 ; Make the modeline a little more inconspicuous...
-(set-face-background 'modeline "#202020")
-(set-face-foreground 'modeline "#C0C0C0")
+;(set-face-background 'modeline "#202020")
+;(set-face-foreground 'modeline "#C0C0C0")
 
 ; Make emacs stop bugging me about symlinks
 (setq vc-follow-symlinks t)

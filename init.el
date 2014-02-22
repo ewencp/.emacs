@@ -53,6 +53,9 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 ; Go mode, including gofmt-on-save
 (require 'go-mode)
 (add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'go-mode-hook
+  (setq tab-width 4)
+)
 
 ; Mac wants home/end to be start/end of document rather than line
 (define-key global-map [home] 'beginning-of-line)

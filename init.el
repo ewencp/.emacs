@@ -185,7 +185,7 @@
 ; Hooks, hooks, and more hooks
 (defconst text-mode-hook
   '(lambda ()
-     (defconst fill-column 70)
+     (defconst fill-column 80)
      (defconst tab-stop-list
        (list 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
      (auto-fill-mode 1)

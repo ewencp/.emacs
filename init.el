@@ -370,6 +370,8 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (global-set-key (kbd "M-<f12>") 'eval-current-buffer)
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-r") 'revert-buffer)
+(global-set-key (kbd "S-<home>") 'beginning-of-buffer)
+(global-set-key (kbd "S-<end>") 'end-of-buffer)
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.

@@ -198,7 +198,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 ; Remove stupid toolbar
 (if (fboundp 'tool-bar-mode)
-    (tool-bar-mode nil)
+    (tool-bar-mode -1)
   )
 
 ; In case of extra buttons

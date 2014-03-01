@@ -52,10 +52,13 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 ; Go mode, including gofmt-on-save
 (require 'go-mode)
-(add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook
-  (setq tab-width 4)
-)
+  (lambda ()
+    (add-hook 'before-save-hook 'gofmt-before-save)
+    (setq-default)
+    (setq tab-width 2)
+    (setq standard-indent 2)
+    (setq indent-tabs-mode nil)))
 
 (require 'magit)
 

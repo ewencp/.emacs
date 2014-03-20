@@ -12,6 +12,20 @@
 ;
 ;#####################################################################
 
+; Packages
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (package-initialize)
+  (unless (package-installed-p 'scala-mode2)
+    (package-refresh-contents) (package-install 'scala-mode2))
+  (unless (package-installed-p 'magit)
+    (package-refresh-contents) (package-install 'magit))
+  (unless (package-installed-p 'web-mode)
+    (package-refresh-contents) (package-install 'web-mode))
+)
+
 ; Don't wait for the window manager if it takes a long time
 (modify-frame-parameters nil '((wait-for-wm . nil)))
 
@@ -59,8 +73,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
     (setq tab-width 2)
     (setq standard-indent 2)
     (setq indent-tabs-mode nil)))
-
-(require 'magit)
 
 ; Mac wants home/end to be start/end of document rather than line
 (define-key global-map [home] 'beginning-of-line)
@@ -184,6 +196,10 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
         '("\\.pp\\'"      . puppet-mode)
         '("\\.less$"      . less-css-mode)
         '("\\.go$"      . go-mode)
+        '("\\.html?$"      . web-mode)
+        '("\\.djhtml$"      . web-mode)
+        '("\\.erb$"      . web-mode)
+        '("\\.mustache$"      . web-mode)
         )
        auto-mode-alist))
 
@@ -388,21 +404,11 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
   ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#212121" :foreground "gray95" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 99 :width normal :foundry "bitstream" :family "Bitstream Vera Sans Mono")))))
 
-; Magit
-(global-set-key (kbd "C-g") 'magit-status)
-
 ; Code folding
 (global-set-key (kbd "C-f") 'hs-toggle-hiding)
 
 ; Copy-and-paste logging
 ;(require 'keylogger)
 
-
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (package-initialize)
-  (unless (package-installed-p 'scala-mode2)
-    (package-refresh-contents) (package-install 'scala-mode2))
-)
+; Magit
+(global-set-key (kbd "C-g") 'magit-status)

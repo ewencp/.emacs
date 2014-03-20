@@ -412,3 +412,11 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 ; Magit
 (global-set-key (kbd "C-g") 'magit-status)
+
+; web-mode customization
+
+;; Set specific engines. .html is too general, so bind it to Django for
+;; now. Good for both Django and regular html.
+(setq web-mode-engines-alist
+      '(("django" . "\\.html\\'")
+        ))

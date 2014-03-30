@@ -24,6 +24,8 @@
     (package-refresh-contents) (package-install 'magit))
   (unless (package-installed-p 'web-mode)
     (package-refresh-contents) (package-install 'web-mode))
+  (unless (package-installed-p 'markdown-mode)
+    (package-refresh-contents) (package-install 'markdown-mode))
 )
 
 ; Don't wait for the window manager if it takes a long time

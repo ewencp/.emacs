@@ -26,6 +26,8 @@
     (package-refresh-contents) (package-install 'web-mode))
   (unless (package-installed-p 'markdown-mode)
     (package-refresh-contents) (package-install 'markdown-mode))
+  (unless (package-installed-p 'enh-ruby-mode)
+    (package-refresh-contents) (package-install 'enh-ruby-mode))
 )
 
 ; Don't wait for the window manager if it takes a long time
@@ -85,7 +87,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (setq whitespace-check-mode t)
 (add-hook 'write-file-hooks 'nuke-trailing-whitespace)
 
-(autoload 'ruby-mode "ruby-mode" "Ruby editing mode." t)
 (autoload 'caml-mode "caml" "Major mode for editing Caml code." t)
 (autoload 'run-caml "inf-caml" "Run an inferior Caml process." t)
 (autoload 'glsl-mode "glsl-mode" nil t)
@@ -172,7 +173,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
         '("\\.c\\+\\+$"   . c++-mode)
         '("\\.H$"         . c++-mode)
         '("\\.cu$"        . c++-mode)
-        '("\\.rb$"        . ruby-mode)
+        '("\\.rb$"        . enh-ruby-mode)
         '("\\.el$"        . emacs-lisp-mode)
         '("emacs$"        . emacs-lisp-mode)
         '("\\.tar$"       . tar-mode)

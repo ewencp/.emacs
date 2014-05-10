@@ -30,6 +30,8 @@
     (package-refresh-contents) (package-install 'enh-ruby-mode))
   (unless (package-installed-p 'php-mode)
     (package-refresh-contents) (package-install 'php-mode))
+  (unless (package-installed-p 'yaml-mode)
+    (package-refresh-contents) (package-install 'yaml-mode))
 )
 
 ; Don't wait for the window manager if it takes a long time

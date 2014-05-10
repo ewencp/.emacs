@@ -28,6 +28,8 @@
     (package-refresh-contents) (package-install 'markdown-mode))
   (unless (package-installed-p 'enh-ruby-mode)
     (package-refresh-contents) (package-install 'enh-ruby-mode))
+  (unless (package-installed-p 'php-mode)
+    (package-refresh-contents) (package-install 'php-mode))
 )
 
 ; Don't wait for the window manager if it takes a long time

@@ -423,3 +423,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (setq web-mode-engines-alist
       '(("django" . "\\.html\\'")
         ))
+
+
+; Turn off the extremely annoying bell
+(setq ring-bell-function 'ignore)

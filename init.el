@@ -34,6 +34,8 @@
     (package-refresh-contents) (package-install 'yaml-mode))
   (unless (package-installed-p 'rust-mode)
     (package-refresh-contents) (package-install 'rust-mode))
+  (unless (package-installed-p 'cargo)
+    (package-refresh-contents) (package-install 'cargo))
 )
 
 ; Don't wait for the window manager if it takes a long time
@@ -377,9 +379,10 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 ; Rust
 (defun e-rust-mode-hook ()
   (setq rust-format-on-save t)
-  (define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
-  (define-key rust-mode-map (kbd "C-c C-t") 'rust-test)
+  (define-key rust-mode-map (kbd "C-c C-r") 'cargo-process-run)
+  (define-key rust-mode-map (kbd "C-c C-t") 'cargo-process-test)
   )
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
 (add-hook 'rust-mode-hook 'e-rust-mode-hook)
 
 ; Compilation stuff

@@ -10,5 +10,5 @@
 
 (setq user-full-name "Ewen Cheslack-Postava")
 
-(setq user-email-address "ewencp@cs.stanford.edu")
-(setq user-mail-address "ewencp@cs.stanford.edu")
+(setq user-email-address "me@ewencp.org")
+(setq user-mail-address "me@ewencp.org")

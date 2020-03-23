@@ -32,6 +32,8 @@
     (package-refresh-contents) (package-install 'php-mode))
   (unless (package-installed-p 'yaml-mode)
     (package-refresh-contents) (package-install 'yaml-mode))
+  (unless (package-installed-p 'rust-mode)
+    (package-refresh-contents) (package-install 'rust-mode))
 )
 
 ; Don't wait for the window manager if it takes a long time
@@ -371,6 +373,15 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
   (message "JS2 hook"))
 (add-hook 'js2-mode-hook 'e-js2-mode-hook)
 
+
+; Rust
+(defun e-rust-mode-hook ()
+  (setq rust-format-on-save t)
+  (define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
+  (define-key rust-mode-map (kbd "C-c C-t") 'rust-test)
+  )
+(add-hook 'rust-mode-hook 'e-rust-mode-hook)
+
 ; Compilation stuff
 (require 'super-compile)
 (setq compilation-scroll-output 'first-error)
@@ -395,19 +406,22 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (global-set-key (kbd "S-<home>") 'beginning-of-buffer)
 (global-set-key (kbd "S-<end>") 'end-of-buffer)
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(load-home-init-file t t)
+ '(package-selected-packages
+   (quote
+    (rust-mode yaml-mode web-mode scala-mode php-mode markdown-mode magit enh-ruby-mode)))
  '(show-paren-mode t))
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#212121" :foreground "gray95" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 99 :width normal :foundry "bitstream" :family "Bitstream Vera Sans Mono")))))
 
 ; Code folding

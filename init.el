@@ -42,8 +42,8 @@
 (setq inhibit-splash-screen t)
 
 ; Use .emacs.d for .el files
-(add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/jade-mode")
+(add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'load-path "~/.emacs.d/lisp/jade-mode")
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ; Personality stuff

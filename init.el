@@ -284,7 +284,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (set-face-foreground  'font-lock-variable-name-face "gray95")
 (set-face-foreground  'font-lock-operators-face "#F7B683")
 (set-face-foreground  'font-lock-preprocessor-face "#FC0B0C")
-(set-face-background  'show-paren-match-face "SlateBlue3")
 (set-face-background  'region "#502020")
 
 ; Setup C++ style

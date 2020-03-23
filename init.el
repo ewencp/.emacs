@@ -381,6 +381,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
   (setq rust-format-on-save t)
   (define-key rust-mode-map (kbd "C-c C-r") 'cargo-process-run)
   (define-key rust-mode-map (kbd "C-c C-t") 'cargo-process-test)
+  (define-key rust-mode-map (kbd "C-c C-l") 'rust-run-clippy)
   )
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
 (add-hook 'rust-mode-hook 'e-rust-mode-hook)

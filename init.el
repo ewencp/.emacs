@@ -15,8 +15,7 @@
 ; Packages
 (when (>= emacs-major-version 24)
   (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
   (package-initialize)
   (unless (package-installed-p 'scala-mode)
     (package-refresh-contents) (package-install 'scala-mode))
@@ -418,8 +417,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
  '(column-number-mode t)
  '(load-home-init-file t t)
  '(package-selected-packages
-   (quote
-    (rust-mode yaml-mode web-mode scala-mode php-mode markdown-mode magit enh-ruby-mode)))
+   '(rust-mode yaml-mode web-mode scala-mode php-mode markdown-mode magit enh-ruby-mode))
  '(show-paren-mode t))
 
 (custom-set-faces

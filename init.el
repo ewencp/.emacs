@@ -35,6 +35,8 @@
     (package-refresh-contents) (package-install 'rust-mode))
   (unless (package-installed-p 'cargo)
     (package-refresh-contents) (package-install 'cargo))
+  (unless (package-installed-p 'wc-mode)
+    (package-refresh-contents) (package-install 'wc-mode))
 )
 
 ; Don't wait for the window manager if it takes a long time
@@ -61,6 +63,8 @@
 (require 'jade-mode)
 
 (require 'less-mode)
+
+(require 'wc-mode)
 
 ; There are some issues finding programs in the PATH on mac, this resolves them.
 (defun set-exec-path-from-shell-PATH ()
@@ -197,6 +201,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
         '("CMakeLists\\.txt\\'" . cmake-mode)
         '("\\.cmake\\'"   . cmake-mode)
         '("\\.doc\\'"     . text-mode)
+        '("\\.jrnl\\'"     . text-mode)
         '("\\.js\\'"      . js2-mode)
         '("\\.json\\'"      . js2-mode)
         '("\\.em\\'"      . js2-mode)
@@ -241,6 +246,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
      (defconst tab-stop-list
        (list 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
      (auto-fill-mode 1)
+     (wc-mode 1)
      (transient-mark-mode 1)))
 
 (defconst shell-mode-hook

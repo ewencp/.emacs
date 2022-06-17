@@ -3,3 +3,5 @@ elpa/
 *.elc
 
 auto-save-list/
+
+transient/

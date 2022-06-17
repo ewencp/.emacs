@@ -37,6 +37,8 @@
     (package-refresh-contents) (package-install 'cargo))
   (unless (package-installed-p 'wc-mode)
     (package-refresh-contents) (package-install 'wc-mode))
+  (unless (package-installed-p 'js2-mode)
+    (package-refresh-contents) (package-install 'js2-mode))
 )
 
 ; Don't wait for the window manager if it takes a long time
@@ -105,8 +107,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
 (autoload 'cmake-mode "cmake-mode" "Major mode for editing CMake build scripts." t)
-(autoload 'js2-mode "js2" nil t)
-(autoload 'espresso-mode "espresso-mode" nil t)
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
 
 ; Set default mode for new buffers to text
@@ -205,6 +205,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
         '("\\.js\\'"      . js2-mode)
         '("\\.json\\'"      . js2-mode)
         '("\\.em\\'"      . js2-mode)
+        '("\\.jsx\\'"      . js2-jsx-mode)
         '("\\.hs\\'"      . haskell-mode)
         '("\\.styl\\'"      . sws-mode)
         '("\\.jade\\'"      . jade-mode)
@@ -320,64 +321,11 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
   '(lambda ()
      (setq asm-comment-char ?\#)))
 
-; Javascript stuff
 
-; sourced from mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
-(defun e-js2-indent-function ()
-  (interactive)
-  (save-restriction
-    (widen)
-    (let* ((inhibit-point-motion-hooks t)
-           (parse-status (save-excursion (syntax-ppss (point-at-bol))))
-           (offset (- (current-column) (current-indentation)))
-           (indentation (espresso--proper-indentation parse-status))
-           node)
-
-      (save-excursion
-
-        ;; I like to indent case and labels to half of the tab width
-        (back-to-indentation)
-        (if (looking-at "case\\s-")
-            (setq indentation (+ indentation (/ espresso-indent-level 2))))
-
-        ;; consecutive declarations in a var statement are nice if
-        ;; properly aligned, i.e:
-        ;;
-        ;; var foo = "bar",
-        ;;     bar = "foo";
-        (setq node (js2-node-at-point))
-        (when (and node
-                   (= js2-NAME (js2-node-type node))
-                   (= js2-VAR (js2-node-type (js2-node-parent node))))
-          (setq indentation (+ 4 indentation))))
-
-      (indent-line-to indentation)
-      (when (> offset 0) (forward-char offset)))))
-
-(defun e-js2-mode-hook ()
-  (require 'espresso)
-  (auto-fill-mode t)
-  (defconst fill-column 80)
-  (setq espresso-indent-level 4
-        indent-tabs-mode nil
-        c-basic-offset 4)
-  (c-toggle-auto-state 0)
-  (c-toggle-hungry-state 1)
-  (set (make-local-variable 'indent-line-function) 'e-js2-indent-function)
-  (define-key js2-mode-map [(meta control |)] 'cperl-lineup)
-  (define-key js2-mode-map [(meta control \;)]
-    '(lambda()
-       (interactive)
-       (insert "/* -----[ ")
-       (save-excursion
-         (insert " ]----- */"))
-       ))
-  (define-key js2-mode-map [(return)] 'newline-and-indent)
-  (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
-  (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
-  (if (featurep 'js2-highlight-vars)
-    (js2-highlight-vars-mode))
-  (message "JS2 hook"))
+                                        ; Javascript stuff
+(defun e-js2-mode-hook()
+  (setq js2-basic-offset 2)
+  )
 (add-hook 'js2-mode-hook 'e-js2-mode-hook)
 
 

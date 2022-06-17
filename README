@@ -3,7 +3,3 @@ writing text and code. The repository is self contained: you can
 simply clone it to ~/.emacs.d/ and it will just work.  Ideally this
 configuration is sufficient and all that needs to be customized is
 personality.el, which specifies your personal information.
-
-If you want good JavaScript highlighting, run build.sh, which just
-byte-compiles a few .el files, which is required to get the JavaScript
-syntax highlighting to be performant.

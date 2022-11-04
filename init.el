@@ -391,6 +391,12 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (global-set-key (kbd "C-g") 'magit-status)
 
 ; web-mode customization
+(add-hook 'web-mode-hook
+  (lambda()
+    (setq web-mode-markup-indent-offset 2)
+    (setq web-mode-css-indent-offset 2)
+    (setq web-mode-code-indent-offset 2)
+    (setq web-mode-indent-style 2)))
 
 ;; Set specific engines. .html is too general, so bind it to Django for
 ;; now. Good for both Django and regular html.

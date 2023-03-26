@@ -407,3 +407,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 ; Turn off the extremely annoying bell
 (setq ring-bell-function 'ignore)
+
+; Maximize the window when in windowed mode
+(add-to-list 'default-frame-alist '(fullscreen . maximized))

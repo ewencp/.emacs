@@ -1,4 +1,4 @@
-This is my personal emacs configuration file, mostly customized for
+fooThis is my personal emacs configuration file, mostly customized for
 writing text and code. The repository is self contained: you can
 simply clone it to ~/.emacs.d/ and it will just work.  Ideally this
 configuration is sufficient and all that needs to be customized is

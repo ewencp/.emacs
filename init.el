@@ -148,7 +148,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 ; Global color and fonts
 (setq default-frame-alist
       '(
-        (font             .  "Droid Sans Mono-10")
+        (font             .  "Menlo-14")
         (width            .     156 )
         (height           .     50 )
         (mouse-color      . "White")
@@ -221,7 +221,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 (make-face            'nick-url-face)
 (set-face-foreground  'nick-url-face "Blue")
-(set-face-underline-p 'nick-url-face t)
 
 ; Remove those pesky scrollbars - they just take up space
 (if (fboundp 'scroll-bar-mode)

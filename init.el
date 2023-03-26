@@ -194,6 +194,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
         '("\\.vert\\'"    . glsl-mode)
         '("\\.frag\\'"    . glsl-mode)
         '("\\.py\\'"      . python-mode)
+        '("\\.star\\'"      . python-mode)
         '("SConscript"    . python-mode)
         '("\\.ml[iylp]?$" . caml-mode)
         '("\\.php$"       . php-mode)

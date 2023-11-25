@@ -410,3 +410,5 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 ; Maximize the window when in windowed mode
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+; Ensure bring to front on start
+(x-focus-frame nil)

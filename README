@@ -1,3 +1,6 @@
+**This repository has moved to https://code.ewencp.org/ewencp/.emacs**
+
+
 fooThis is my personal emacs configuration file, mostly customized for
 writing text and code. The repository is self contained: you can
 simply clone it to ~/.emacs.d/ and it will just work.  Ideally this
